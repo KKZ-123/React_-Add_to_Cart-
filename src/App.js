@@ -1,10 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
-import ItemContext, { ItemProvider } from './context/ItemContext';
+import { ItemProvider } from './context/ItemContext';
+import View from './view';
 
 function App() {
   return (
-    <ItemProvider>hello World</ItemProvider>
+    <ItemProvider>
+      <View />
+    </ItemProvider>
   );
 }
 
