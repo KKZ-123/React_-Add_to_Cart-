@@ -1,4 +1,6 @@
-import React, { createContext } from 'react'
+import React, { createContext, useReducer } from 'react'
+import reducer from './ItemReducer';
+
 
 const ITEMS = [
     {
@@ -24,9 +26,10 @@ const ITEMS = [
 ];
 
 const ItemContext = createContext({});
-
 export const ItemProvider = ({ children }) => {
-    return <ItemContext.Provider value={{ items: ITEMS }}> {children} </ItemContext.Provider>
+    const [cartItems, dispatch] = useReducer(reducer, []);
+
+    return <ItemContext.Provider value={{ items: ITEMS, dispatchCart : dispatch, cartItems: cartItems }}> {children} </ItemContext.Provider>
 };
 
 
